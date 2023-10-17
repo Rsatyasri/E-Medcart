@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>E-MedCart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+   body {
+            background-color: rgb(202, 237, 238);
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-size:20px;
+        }
+        h1{
+            margin-left:-5cm;
+        }
+
+        .navbar {
+            
+            margin-top:1cm;
+            background-color: #8adee0;
+            padding-right:-50cm;
+        }
+        
+        .navbar a {
+            color:black;
+        }
+
+        .navbar a:hover {
+            color:white;
+        }
+        
+        .search-bar {
+            margin-top: 10px;
+        }
+        .phone{
+            padding-top:10px;
+            padding-left:15px;
+        }
+        .home{
+            position: relative;
+            right:-8cm;
+            top:3cm;
+        }
+        h2{
+            margin-top:-3cm;
+            margin-left:10cm;
+        }
+        .pic{
+            position: relative;
+            right:-8cm;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <a href="">
+            <img src="images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
+          </a>
+    </div>
+   
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <h1>E-MedCart</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto"  style="margin-right:5cm;">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="medicine.html">Medicine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="buy.html">Online Buy</a>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline search-bar" style="margin:0.5px;">
+                        <input class="form-control" type="text" placeholder="Search">
+                        <button class="btn btn-outline-light" type="submit" style="margin-left:10px;">Search</button>
+                    </form>
+                </li>
+                <li class="nav-item dropdown" style="margin-right: -6cm; margin-left:2cm;"  >
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        User
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Login</a>
+                        <a class="dropdown-item" href="#">Sign Up</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="home">
+    <h2>About Us </h2>
+    <div class="pic">
+        <img src="images/about-medicine.png" alt="">
+    </div>
+   
+    <p>At E-MedCart, our mission is clear: to revolutionize the way people access healthcare.</p>  
+       <p>We believe that everyone, irrespective of their location or background, deserves access to affordable medicines.</p> 
+          <p>By combining our deep pharmaceutical knowledge with cutting-edge technology, we aim to create a seamless </p> 
+         <p>
+            experience for all our users, ensuring they get the right medication at the right time.</p>
+</div>
+
+<!-- Your content goes here -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

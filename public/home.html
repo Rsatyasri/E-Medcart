@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>E-MedCart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('images/bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-size:20px;
+        }
+        h1{
+            margin-left:-5cm;
+        }
+        .navbar {
+            
+            margin-top:1cm;
+            background-color: #8adee0;
+            padding-right:-50cm;
+        }
+        
+        .navbar a {
+            color:black;
+        }
+
+        .navbar a:hover {
+            color:white;
+        }
+        
+        .search-bar {
+            margin-top: 10px;
+        }
+        .phone{
+            padding-top:10px;
+            padding-left:15px;
+        }
+        .home{
+            position: relative;
+            right:-17cm;
+            top:5cm;
+        }
+        h2{
+            font-size:40px;
+            color:rgb(16, 122, 99);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <a href="">
+            <img src="images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
+          </a>
+    </div>
+   
+<nav class="navbar navbar-expand-lg">
+    
+    <div class="container">
+        <h1>E-MedCart</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto" style="margin-right:5cm;">
+                <li class="nav-item" >
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="medicine.html">Medicine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="buy.html">Online Buy</a>
+                </li>
+                    <li class="nav-item">
+                        <form class="form-inline search-bar" style="margin:0.5px;">
+                            <input class="form-control" type="text" placeholder="Search">
+                            <button class="btn btn-outline-light" type="submit" style="margin-left:10px;" >Search</button>
+                        </form>
+                    </li>
+                    <li class="nav-item dropdown" style="margin-right: -6cm; margin-left:2cm;">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            User
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="login.html">Login</a>
+                            <a class="dropdown-item" href="signup.html">Sign Up</a>
+                        </div>
+                    </li>
+               
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="home">
+    <h3>Welcome To Our </h3>
+    <h2>E-MedCart </h2>
+    <p>We believe in making healthcare accessible to all.</p>
+     <p>With a user-friendly interface,E-MedCart makes medicine shopping as easy as a click.</p>
+     <p>Use our intuitive search function, or browse through our categories to find what you need</p>
+</div>
+
+<!-- Your content goes here -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

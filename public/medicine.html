@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-MedCart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: rgb(202, 237, 238);
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-size:20px;
+        }
+        h1{
+            margin-left:13cm;
+        }
+
+        .navbar {
+            
+            margin-top:1cm;
+            background-color: #8adee0;
+            padding-right:-50cm;
+        }
+        
+        .navbar a {
+            color:black;
+        }
+
+        .navbar a:hover {
+            color:white;
+        }
+        
+        .search-bar {
+            margin-top: 10px;
+        }
+        .phone{
+            padding-top:10px;
+            padding-left:15px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        label, input, button {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #medicineInfo {
+            padding: 20px;
+            margin-left:15cm;
+            width:400px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        .store{
+            position: relative;
+            right:-10cm;
+        }
+        #medicineInfo p {
+            margin-top: 10px;
+            
+        }
+        .container h1{
+            font-size:30px;
+            margin-left:-5cm;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <a href="">
+            <img src="images/telephone-symbol-button.png" alt=""> Call : +01 1234567890
+          </a>
+    </div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <h1>E-MedCart</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto"  style="margin-right:5cm;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="medicine.html">Medicine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="buy.html">Online Buy</a>
+                    </li>
+                    <li class="nav-item">
+                        <form class="form-inline search-bar" style="margin:0.5px;">
+                            <input class="form-control" type="text" placeholder="Search">
+                            <button class="btn btn-outline-light" type="submit" style="margin-left:10px;">Search</button>
+                        </form>
+                    </li>
+                    <li class="nav-item dropdown" style="margin-right: -6cm; margin-left:2cm;">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            User
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">Login</a>
+                            <a class="dropdown-item" href="#">Sign Up</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1>Medicine Store</h1>
+    
+    <div class="store">
+        <label for="medicineName">Enter Medicine Name: </label>
+        <input type="text" id="medicineName" placeholder="Enter medicine name">
+        <button onclick="searchMedicine()">Search</button>
+    </div>
+    <div id="medicineInfo">
+       
+    </div>
+   
+    <script>
+        var medicineData = []; // Array to store medicine data
+
+        // Function to load the CSV file and populate the medicineData array
+        function loadCSV() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'data.csv', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    parseCSV(xhr.responseText);
+                }
+            };
+            xhr.send();
+        }
+
+        // Function to parse the CSV content and populate the medicineData array
+        function parseCSV(csvContent) {
+            var lines = csvContent.split('\n');
+            for (var i = 1; i < lines.length; i++) {
+                var data = lines[i].split(',');
+                if (data.length === 3) {
+                    medicineData.push({ id: data[0], name: data[1], cost: parseFloat(data[2]) });
+                }
+            }
+        }
+
+        // Call the loadCSV function to load data from the CSV file
+        loadCSV();
+
+        function searchMedicine() {
+            var name = document.getElementById("medicineName").value.toLowerCase();
+            var medicineInfo = document.getElementById("medicineInfo");
+
+            var foundMedicine = medicineData.find(function(medicine) {
+                return medicine.name.toLowerCase() === name;
+            });
+
+            if (foundMedicine) {
+                medicineInfo.innerHTML = `
+                    <h2>Medicine Information</h2>
+                    <p>ID: ${foundMedicine.id}</p>
+                    <p>Name: ${foundMedicine.name}</p>
+                    <p>Cost: Rs${foundMedicine.cost.toFixed(2)}</p>
+                    <button onclick="buyMedicine('${foundMedicine.name}')">Buy Now</button>
+                `;
+            } else {
+                medicineInfo.innerHTML = "<p>Medicine not found</p>";
+            }
+        }
+        
+        function buyMedicine(medicineName) {
+            alert(`You are buying ${medicineName}.`);  // Fixed missing backticks for the template literal.
+        }
+    </script>
+    
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
